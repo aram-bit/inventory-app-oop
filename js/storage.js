@@ -41,5 +41,8 @@ export default class Storage{
         }
         localStorage.setItem("products",JSON.stringify(savedProducts));
     }
+    static saveAllProducts(products){
+        localStorage.setItem("products",JSON.stringify(products));
+    }
 
 }

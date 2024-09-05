@@ -34,11 +34,26 @@ class ProductView{
                     <p class="product_date">${new Date(product.updated).toLocaleDateString("fa-IR")}</p>
                     <p class="product_category-list">${foundCategory.title}</p>
                     <p class="product_numbers">${product.quantity}</p>
-                    <button class="product_remove">delete</button>
+                    <button class="product_remove" data-id=${product.id}>delete</button>
                     </div>
                     </div>`;
         });
-        document.querySelector(".products").innerHTML=result;        
+        document.querySelector(".products").innerHTML=result;  
+        const removeBtns=document.querySelectorAll(".product_remove");
+        const btns=[...removeBtns];
+        btns.forEach(btn=>{
+            btn.addEventListener("click",(e)=>this.removeProduct(e));
+        });
     }
+    removeProduct(e){
+    const id=e.target.dataset.id;
+    console.log(id);
+    
+    const savedProducts=Storage.getAllProducts();
+    const filteredProducts=savedProducts.filter(p=>(p.id)!==parseInt(id));
+    this.createProductList(filteredProducts);
+    this.products=filteredProducts;
+    Storage.saveAllProducts(filteredProducts);
+} 
 }
 export default new ProductView();
