@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Inventory Project</title>
+  </head>
+  <body>
+    <!-- navigation starts -->
+    <nav class="navbar">
+      <p>Inventory App</p>
+    </nav>
+    <!-- navigation finishes -->
+    <!-- main content -->
+    <div class="main">
+      <div class="main_links">
+        <a href="#" class="category_link">Add new category?</a>
+        <a href="#" class="product_link">Add new product</a>
+      </div>
+      <div>
+        <form class="form product_form">
+          <span>
+            <label for="product_title">title</label>
+            <input type="text" name="product_title" id="product_title"/>
+          </span>
+          <span>
+            <label for="product_quantity">quantity</label>
+            <input type="text" name="product_quantity" id="product_quantity" />
+          </span>
+          <span>
+            <label for="product_category">category</label>
+            <select name="product_category" id="product_category">
+              <!-- <option value="choose a category">select a category</option> -->
+              <!-- <option value="bag">bag</option>
+              <option value="watch">watch</option>
+              <option value="clothes">clothes</option> -->
+            </select>
+          </span>
+          <button class="btn product_btn" type="submit">add new product</button>
+        </form>
+      </div>
+      <div>
+        <form action="" class="form category_form">
+          <span>
+            <label for="category_title">title</label>
+            <input type="text" name="category_title" id="category_title" />
+          </span>
+          <span>
+            <label for="category_description">description</label>
+            <textarea
+              name="category_description"
+              id="category_description"
+            ></textarea>
+          </span>
+          <div class="cateory_btns">
+            <button class="btn_cancle">cancle</button>
+            <button class="btn_add-category" type="submit">add category</button>
+          </div>
+        </form>
+      </div>
+      <div class="products_list">
+        <p>ProductList</p>
+        <span>
+            <label for="search">search</label>
+            <input type="text">
+        </span>
+        <span>
+            <label for="sort">sort</label>
+            <select name="" id="">
+                <option value="newest">newest</option>
+                <option value="oldest">oldest</option>
+            </select>
+        </span>
+        <div class="products">
+            <!-- <div class="product_setting">
+                <div >
+                    <p class="product_name">watch</p>
+                </div>
+                <div class="product_detail">
+                    <p class="product_date">1403/03/22</p>
+                    <p class="product_category-list">accesories</p>
+                    <p class="product_numbers">6</p>
+                    <button class="product_remove">delete</button>
+                </div>
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
