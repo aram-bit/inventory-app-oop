@@ -21,6 +21,18 @@ class CategoryView{
         if(!title || !description)return;
         Storage.saveCategory({title,description});
         this.categories=Storage.getAllCategories();
+        this.createCategoryList(this.categories);
+      }
+      setApp(){
+        this.categories=Storage.getAllCategories();
+      }
+      createCategoryList(categories){
+      let result=`<option value="choose a category">select a category</option>`;
+      categories.forEach(category => {
+        result+=`<option value="${category.id}">${category.title}</option>`;
+      });
+      const productCategory=document.getElementById("product_category");
+      productCategory.innerHTML=result;
       }
 }
 export default new CategoryView();
