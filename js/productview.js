@@ -20,7 +20,25 @@ class ProductView{
         if(!title || !quantity || !category)return;
         Storage.saveProduct({title,quantity,category});
         this.products=Storage.getAllProducts();
-
+        this.createProductList(this.products);
+    }
+    createProductList(products){
+        let result="";
+        products.forEach(product => {
+            const foundCategory=Storage.getAllCategories().find(c=>c.id==product.category);
+            result+=`<div class="product_setting">
+                    <div >
+                    <p class="product_name">${product.title}</p>
+                    </div>
+                    <div class="product_detail">
+                    <p class="product_date">${new Date(product.updated).toLocaleDateString("fa-IR")}</p>
+                    <p class="product_category-list">${foundCategory.title}</p>
+                    <p class="product_numbers">${product.quantity}</p>
+                    <button class="product_remove">delete</button>
+                    </div>
+                    </div>`;
+        });
+        document.querySelector(".products").innerHTML=result;        
     }
 }
 export default new ProductView();
